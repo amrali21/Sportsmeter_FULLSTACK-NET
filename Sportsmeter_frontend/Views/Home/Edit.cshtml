@@ -1,0 +1,15 @@
+﻿@model CRUD_Design.Models.DBModel.RunInfo
+@{
+    ViewData["Title"] = "Edit Record";
+}
+
+<div>
+    <form asp-action="Edit" method="post">
+      <input type="hidden" asp-for="Id" value="@Model.Id" />
+    <input type="hidden" asp-for="ApplicationUserId" value="@Model.ApplicationUserId" />
+    <input type="number" asp-for="Distance"value="@Model.Distance" />
+    <input type="number" asp-for="Time" value="@Model.Time"/>
+    <input type="date" asp-for="Date" value="@Model.Date"/>
+    <input type="submit" value="Edit" />   
+</form>
+</div>

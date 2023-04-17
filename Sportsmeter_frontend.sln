@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sportsmeter_frontend", "Sportsmeter_frontend\Sportsmeter_frontend.csproj", "{B7B31334-678B-4BE4-9EC8-5AD997255BEF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRUD_Design", "CRUD_Design\CRUD_Design\CRUD_Design.csproj", "{48C5F9A5-0BC2-4106-AD31-5EF457638259}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7B31334-678B-4BE4-9EC8-5AD997255BEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7B31334-678B-4BE4-9EC8-5AD997255BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7B31334-678B-4BE4-9EC8-5AD997255BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7B31334-678B-4BE4-9EC8-5AD997255BEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48C5F9A5-0BC2-4106-AD31-5EF457638259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48C5F9A5-0BC2-4106-AD31-5EF457638259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48C5F9A5-0BC2-4106-AD31-5EF457638259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48C5F9A5-0BC2-4106-AD31-5EF457638259}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E7B8F34-60E4-46E7-BC83-4EE7761AFDA1}
+	EndGlobalSection
+EndGlobal
