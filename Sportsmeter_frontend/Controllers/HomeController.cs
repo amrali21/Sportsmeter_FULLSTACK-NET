@@ -27,9 +27,12 @@ namespace Sportsmeter_frontend.Controllers
             _mapper = mapper;
         }
 
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> Index()
         {
+            if (UserID == null)
+                return RedirectToAction("Report");
+
             List<RunInfo> runInfos = await _runInfoRepository.GetAsync(t => t.ApplicationUserId == UserID.Value.ToString());
             
             ViewBag.RunInfo = runInfos;
@@ -39,7 +42,7 @@ namespace Sportsmeter_frontend.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Add([Bind("Distance,Time,Date")]CreateRunInfoDTO runInfoDTO)
-        {
+        { 
             if (!ModelState.IsValid)
             {
                 return BadRequest();
@@ -47,9 +50,6 @@ namespace Sportsmeter_frontend.Controllers
 
             RunInfo runInfo = new()
             {
-                Id = (Int32.Parse(
-                (await _runInfoRepository.GetAllAsync().ConfigureAwait(false)).Max(r => r.Id))
-                + 1).ToString(),
                 Distance = runInfoDTO.Distance,
                 Date = runInfoDTO.Date,
                 Time = runInfoDTO.Time,
@@ -68,10 +68,11 @@ namespace Sportsmeter_frontend.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Edit(string Id)
+        public async Task<IActionResult> Edit(int Id)
         {
             RunInfo runINfo = await _runInfoRepository.GetAsync(Id);
 
+            var test = runINfo.Date.ToString("yyyy-MM-dd");
             return View(runINfo);
         }
 
@@ -95,7 +96,7 @@ namespace Sportsmeter_frontend.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Delete(string Id)
+        public async Task<IActionResult> Delete(int Id)
         {
             try
             {
@@ -107,6 +108,11 @@ namespace Sportsmeter_frontend.Controllers
             }
 
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Report()
+        {
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

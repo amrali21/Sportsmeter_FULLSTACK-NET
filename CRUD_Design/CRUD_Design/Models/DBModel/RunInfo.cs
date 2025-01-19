@@ -4,7 +4,7 @@ namespace CRUD_Design.Models.DBModel
 {
     public class RunInfo
     {
-        public string? Id { get; set; }    
+        public int Id { get; set; }    
         [Required]
         public float Distance { get; set; }
         [Required]

@@ -25,14 +25,14 @@ namespace CRUD_Design.Repository
             return entity;
         }
 
-        public async Task DeleteAsync(string id)
+        public async Task DeleteAsync(object id)
         {
             var entity = await GetAsync(id);
              _context.Set<T>().Remove(entity);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<bool> Exists(string id)
+        public async Task<bool> Exists(object id)
         {
             var entity = await GetAsync(id);
             return entity != null; 
@@ -47,7 +47,7 @@ namespace CRUD_Design.Repository
         {
             return await _context.Set<T>().Where(expression).ToListAsync();
         }
-        public async Task<T> GetAsync(string id)
+        public async Task<T> GetAsync(object id)
         {
             if (id is null)
                 return null;
