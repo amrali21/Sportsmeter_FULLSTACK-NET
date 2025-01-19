@@ -14,7 +14,7 @@ namespace Sportsmeter_frontend.Model.Services
         }
         //public DbSet<User> Users{ get; set; }
         public DbSet<RunInfo> RunInfos { get; set; }
-
+            
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

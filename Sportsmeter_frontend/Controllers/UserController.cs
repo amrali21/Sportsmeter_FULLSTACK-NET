@@ -69,13 +69,13 @@ namespace Sportsmeter_frontend.Controllers
 
             Response.Cookies.Append("X-Access-Token", authResponse.Token, new CookieOptions() { Expires = DateTimeOffset.Now.AddDays(7), Path ="/" });
 
-            return Ok("login success");
+            return RedirectToAction("Index", "Home");
         }
 
         public async Task<ActionResult> Logout()
         {
             Response.Cookies.Delete("X-Access-Token");
-            return Ok("logout success");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
