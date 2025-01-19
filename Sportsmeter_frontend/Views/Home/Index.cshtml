@@ -30,6 +30,14 @@
                         </aside>
                     </form>
                 </section>
+                    
+            @{
+                if(runInfo.Count() == 0)
+                {
+                    <section>No recrods yet. Start by adding one record</section>
+                    return;
+                }
+            }
 
                 <section id="memos">
                     <div class="table-responsive-xl">

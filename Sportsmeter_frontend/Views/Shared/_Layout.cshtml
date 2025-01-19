@@ -8,7 +8,7 @@
     if(UserID!= null) 
     {
          userName = (await _userRepository.GetAsync(UserID.Value.ToString()).ConfigureAwait(false)).FirstName;
-         editor = User.IsInRole("Administrator") || User.IsInRole("UserManager");
+         editor = true || User.IsInRole("Administrator") || User.IsInRole("UserManager");
     };
 }
 <!DOCTYPE html>
@@ -36,7 +36,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Weekly Report</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Report">Weekly Report</a>
                         </li>
                         @if (@editor != false)
                         {
