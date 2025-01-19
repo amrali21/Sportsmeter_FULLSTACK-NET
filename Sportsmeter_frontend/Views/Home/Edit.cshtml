@@ -9,7 +9,7 @@
     <input type="hidden" asp-for="ApplicationUserId" value="@Model.ApplicationUserId" />
     <input type="number" asp-for="Distance"value="@Model.Distance" />
     <input type="number" asp-for="Time" value="@Model.Time"/>
-    <input type="date" asp-for="Date" value="@Model.Date"/>
+    <input type="date" asp-for="Date"  value="@Model.Date.ToString("yyyy-MM-dd")" />
     <input type="submit" value="Edit" />   
 </form>
 </div>
