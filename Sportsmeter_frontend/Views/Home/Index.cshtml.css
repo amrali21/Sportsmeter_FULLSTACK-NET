@@ -15,20 +15,21 @@
     display: flex;
 }
 
-    #divider > section:first-of-type {
-        width: 30%;
-    }
+#divider > section:first-of-type {
+    width: 30%;
+}
 
-    #divider > section:last-of-type {
-        width: 70%;
-    }
 
-    /*memos section*/
-    #divider > #memos {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-    }
+/*memos section*/
+#divider > #memos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+#memos th{
+    padding-top:0;
+}
 
 /*input form section*/
 .input-form form > div {

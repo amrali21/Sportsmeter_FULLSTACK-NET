@@ -13,20 +13,20 @@
 </div>
 
 <div className='wrapper'>
-            <div id="divider">
+    <div id="divider" class="justify-content-evenly">
                 <section class="input-form">
                     <form asp-action="Add">
                         <div>
-                            <input asp-for="Time" placeholder="time" type="number" />
+                    <input asp-for="Time" class="form-control" placeholder="time" type="number" />
                         </div>
                         <div>
-                            <input asp-for="Distance" placeholder="distance" type="number" />
+                    <input asp-for="Distance" class="form-control" placeholder="distance" type="number" />
                         </div>
-                        <div>
-                            <input asp-for="Date" placeholder="date" type="date" />
+                        <div >
+                    <input asp-for="Date" class="form-control" placeholder="date" type="date" />
                         </div>
                         <aside>
-                <button type="submit" >Add</button>
+                    <button type="submit" class="btn btn-outline-secondary">Add</button>
                         </aside>
                     </form>
                 </section>
@@ -34,13 +34,13 @@
             @{
                 if(runInfo.Count() == 0)
                 {
-                    <section>No recrods yet. Start by adding one record</section>
+                    <section >No recrods yet. Start by adding one record</section>
                     return;
                 }
             }
 
-                <section id="memos">
-                    <div class="table-responsive-xl">
+             <section id="memos">
+            <div class="table-responsive-xl table-striped">
             <table class="table">
                 <thead>
                     <tr>

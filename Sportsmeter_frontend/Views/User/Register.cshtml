@@ -3,19 +3,23 @@
     ViewData["Title"] = "Register Site";
 }
 
+<head>
+    <link rel="stylesheet" href="@Url.Content("~/Content/Register.css")" />
+</head>
+
 <div>
-    <form asp-action="Register" method="post">
-      <input type="email" placeholder="email" asp-for="Email" />
-    <input type="password" placeholder="password" asp-for="Password"/>
-    <input type="text" placeholder="first name" asp-for="FirstName" />
-    <input type="text" placeholder="last name" asp-for="LastName" />
- 
-          <select id="Role" asp-for="Role" >
+    <form asp-action="Register" class="main-form" method="post">
+        <input type="email" class="form-control" placeholder="Email" asp-for="Email" />
+        <input type="password" class="form-control" placeholder="Password" asp-for="Password" />
+        <input type="text" class="form-control" placeholder="First name" asp-for="FirstName" />
+        <input type="text" class="form-control" placeholder="Last name" asp-for="LastName" />
+
+        <select id="Role" class="form-control" asp-for="Role">
             @foreach(string role in @ViewBag.Roles)
             {
                        <option value=@role selected="@(role == "USER")">@role</option>
             }
      </select>
-    <input type="submit" value="Register" />   
-</form>
+        <input id="custom-button" type="submit" class="btn btn-outline-secondary" value="Register" />
+    </form>
 </div>
