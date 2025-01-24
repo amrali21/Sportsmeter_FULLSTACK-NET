@@ -9,12 +9,12 @@
 
 <div>
     <form asp-action="Register" class="main-form" method="post">
-        <input type="email" class="form-control" placeholder="Email" asp-for="Email" />
-        <input type="password" class="form-control" placeholder="Password" asp-for="Password" />
-        <input type="text" class="form-control" placeholder="First name" asp-for="FirstName" />
-        <input type="text" class="form-control" placeholder="Last name" asp-for="LastName" />
+        <input type="email" class="form-control mb-2" placeholder="Email" asp-for="Email" />
+        <input type="password" class="form-control mb-2" placeholder="Password" asp-for="Password" />
+        <input type="text" class="form-control mb-2" placeholder="First name" asp-for="FirstName" />
+        <input type="text" class="form-control mb-2" placeholder="Last name" asp-for="LastName" />
 
-        <select id="Role" class="form-control" asp-for="Role">
+        <select id="Role" class="form-control mb-2" asp-for="Role">
             @foreach(string role in @ViewBag.Roles)
             {
                        <option value=@role selected="@(role == "USER")">@role</option>
