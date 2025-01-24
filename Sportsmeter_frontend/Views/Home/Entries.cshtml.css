@@ -1,0 +1,44 @@
+﻿.wrapper {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 1200px) {
+    .wrapper {
+        max-width: 1160px;
+    }
+}
+
+/* divier */
+#divider {
+    display: flex;
+    justify-content: flex-start !important;
+}
+
+#divider > section:first-of-type {
+    width: 70%;
+}
+
+
+/*memos section*/
+#divider > #memos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+#memos th{
+    padding-top:0;
+}
+
+/*input form section*/
+.input-form form > div {
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+.input-form aside > * {
+    margin-right: 3px;
+    margin-top: 0px;
+}

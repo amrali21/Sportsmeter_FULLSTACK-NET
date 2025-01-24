@@ -1,0 +1,20 @@
+﻿@using CRUD_Design.Models.DTO.RunInfo
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model DateSearchDTO
+@{
+    var message = ViewBag.message;
+}
+
+<form asp-action="Entries" method="get">
+
+    <input type="date" class="form-control mb-2" required placeholder="date from" asp-for="dateFrom" />
+    <input type="date" class="form-control mb-2" placeholder="date to" asp-for="dateTo" />
+    <input type="number" class="form-control mb-2" placeholder="Enter distance.." asp-for="distance" />
+    <input type="number" class="form-control mb-2" placeholder="Enter time.." asp-for="time" />
+
+    <div>@message</div>
+
+    <input type="submit" class="btn btn-outline-secondary" value="Search" />
+</form>

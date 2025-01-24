@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CRUD_Design.Contracts;
 using CRUD_Design.Models.DBModel;
+using CRUD_Design.Models.DTO.RunInfo;
 using CRUD_Design.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -28,20 +29,58 @@ namespace Sportsmeter_frontend.Controllers
         }
 
         //[Authorize]
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
+        {
+            return RedirectToAction("Search");
+        }
+
+        public IActionResult Search([Bind("dateFrom,dateTo,distance,time")] DateSearchDTO dateSearchDTO)
         {
             if (UserID == null)
                 return RedirectToAction("Report");
 
-            List<RunInfo> runInfos = await _runInfoRepository.GetAsync(t => t.ApplicationUserId == UserID.Value.ToString());
-            
-            ViewBag.RunInfo = runInfos;
+            ViewBag.message = TempData["message"];
+            return View("Search");
+        }
 
+        public async Task<IActionResult> Entries([Bind("dateFrom,dateTo,distance,time")] DateSearchDTO dateSearchDTO)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+
+            if (!DateTime.TryParse(dateSearchDTO.dateFrom, out DateTime dateFrom))
+                return BadRequest();
+
+            DateTime.TryParse(dateSearchDTO.dateTo, out DateTime dateTo);
+
+
+            List<RunInfo> runInfos = await _runInfoRepository.GetAsync(t => 
+                t.ApplicationUserId == UserID.Value.ToString() 
+                && (dateSearchDTO.distance == null || t.Distance == dateSearchDTO.distance)
+                && (dateSearchDTO.time == null || t.Time == dateSearchDTO.time)
+                && t.Date >= dateFrom
+                && (dateSearchDTO.dateTo == null || t.Date <= dateTo));
+
+            if (!runInfos.Any())
+            {
+                TempData["message"] = "No Records found";
+                return RedirectToAction("Search", dateSearchDTO);
+                //return Search(dateSearchDTO);//RedirectToAction("Search"); /*View("Search")*/
+            }
+
+            return View(runInfos);
+        }
+
+        public IActionResult Add()
+        {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([Bind("Distance,Time,Date")]CreateRunInfoDTO runInfoDTO)
+        public async Task<IActionResult> AddItem([Bind("Distance,Time,Date")]CreateRunInfoDTO runInfoDTO)
         { 
             if (!ModelState.IsValid)
             {

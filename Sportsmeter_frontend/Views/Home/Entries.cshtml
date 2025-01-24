@@ -1,0 +1,52 @@
+﻿@model IList<CRUD_Design.Models.DBModel.RunInfo>
+
+@{
+    var runInfo = @Model;
+}
+
+<div class="text-center">
+
+@*    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+*@
+</div>
+
+<div className='wrapper'>
+    <div id="divider" class="justify-content-evenly">
+                    
+            @{
+                if(runInfo.Count() == 0)
+                {
+                    <section >No recrods yet. Start by adding one record</section>
+                    return;
+                }
+            }
+
+             <section id="memos">
+            <div class="table-responsive-xl table-striped">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Distance</th>
+                        <th>Time</th>
+                        <th>Date</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                        @foreach (var item in runInfo)
+                        {
+                      <tr>
+                        <td>@item.Distance</td>
+                        <td>@item.Time</td>
+                        <td>@item.Date</td>
+                        <td> <a class="btn btn-secondary"  asp-action="Edit" asp-route-Id= "@item.Id">edit</a> <a asp-action="Delete" asp-route-Id= "@item.Id" class="btn btn-secondary" >delete</a></td>
+                    </tr>
+                        }
+                </tbody>
+                </table>
+                </div>
+                </section>
+            </div>
+        </div>
+        
