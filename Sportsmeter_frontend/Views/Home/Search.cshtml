@@ -14,7 +14,12 @@
     <input type="number" class="form-control mb-2" placeholder="Enter distance.." asp-for="distance" />
     <input type="number" class="form-control mb-2" placeholder="Enter time.." asp-for="time" />
 
-    <div>@message</div>
+    @if(message != "" && message != null){
+        <div class="alert alert-danger" role="alert">
+            @message
+        </div>
+    }
+
 
     <input type="submit" class="btn btn-outline-secondary" value="Search" />
 </form>
