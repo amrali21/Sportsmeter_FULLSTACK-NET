@@ -5,11 +5,24 @@
 
 <div>
     <form asp-action="Edit" method="post">
+        <h3>Edit Record</h3>
       <input type="hidden" asp-for="Id" value="@Model.Id" />
-        <input type="hidden" class="form-control mb-2" asp-for="ApplicationUserId" value="@Model.ApplicationUserId" />
-        <input type="number" class="form-control mb-2" asp-for="Distance" value="@Model.Distance" />
-        <input type="number" class="form-control mb-2" asp-for="Time" value="@Model.Time" />
-        <input type="date" class="form-control mb-2" asp-for="Date" value="@Model.Date.ToString("yyyy-MM-dd")" />
+
+        <div>
+            <input type="hidden" class="form-control mb-2" asp-for="ApplicationUserId" value="@Model.ApplicationUserId" />
+        </div>
+        <div class="mb-2">
+            <label class="mb-1">Distance</label>
+            <input type="number" class="form-control mb-2" asp-for="Distance" value="@Model.Distance" />
+        </div>
+        <div class="mb-2">
+            <label class="mb-1">Time</label>
+            <input type="number" class="form-control mb-2" asp-for="Time" value="@Model.Time" />
+        </div>
+        <div class="mb-2">
+            <label class="mb-1">Date</label>
+            <input type="date" class="form-control " asp-for="Date" value="@Model.Date.ToString("yyyy-MM-dd")" />
+        </div>
        
 
         <input type="submit" class="btn btn-outline-secondary" value="Edit" />
