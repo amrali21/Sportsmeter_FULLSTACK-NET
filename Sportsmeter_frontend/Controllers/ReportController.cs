@@ -2,6 +2,7 @@
 using CRUD_Design.Models.DBModel;
 using CRUD_Design.Models.DTO.Reports;
 using Microsoft.AspNetCore.Mvc;
+using Sportsmeter_frontend.Models;
 using System.Security.Claims;
 
 namespace Sportsmeter_frontend.Controllers

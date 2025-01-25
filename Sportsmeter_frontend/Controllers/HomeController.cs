@@ -40,10 +40,10 @@ namespace Sportsmeter_frontend.Controllers
             if (UserID == null)
                 return RedirectToAction("LoginView","User");
 
-            ViewBag.message = TempData["message"];
+            ViewBag.message = TempData?["message"];
             return View("Search");
         }
-
+                                                
         public async Task<IActionResult> Entries([Bind("dateFrom,dateTo,distance,time")] DateSearchDTO dateSearchDTO)
         {
             if (!ModelState.IsValid)
@@ -81,7 +81,7 @@ namespace Sportsmeter_frontend.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpPost]                                        //bind necessary when you only want to include some property
         public async Task<IActionResult> AddItem([Bind("Distance,Time,Date")]CreateRunInfoDTO runInfoDTO)
         { 
             if (!ModelState.IsValid)
