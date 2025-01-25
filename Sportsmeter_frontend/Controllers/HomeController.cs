@@ -71,6 +71,7 @@ namespace Sportsmeter_frontend.Controllers
                 //return Search(dateSearchDTO);//RedirectToAction("Search"); /*View("Search")*/
             }
 
+            ViewBag.Query = dateSearchDTO;
             return View(runInfos);
         }
 
