@@ -23,6 +23,11 @@ namespace Sportsmeter_frontend.Controllers
             _userManager = userManager;
         }
       
+        public IActionResult LoginView()
+        {
+            return View("Login");
+        }
+
         public  IActionResult Index()
         {
             ViewBag.Users = _context.Users.Select(u => new
