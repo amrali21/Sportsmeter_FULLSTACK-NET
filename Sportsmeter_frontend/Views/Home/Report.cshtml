@@ -1,9 +1,48 @@
-﻿@*
+﻿@using CRUD_Design.Models.DTO.Reports
+@model List<WeeklyReport>
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
+<link rel="stylesheet" media="print" href="~/css/print.css">
 
-<div>
-    TESTING REPORT
+<div class="d-none d-flex justify-content-between align-items-center mb-2 yesprint">
+<img width="100px" height="100px" src="~/dummy.jpg" alt="dummy" />
+ 
+ <div class="d-flex flex-column justify-content-center align-items-center">
+
+    </div>
+
+    <h4>
+        @DateTime.Now
+    </h4>
+
+</div>
+<div class="d-flex justify-content-between">
+    <h2>Weekly Report</h2>
+    <button class="btn btn-outline-secondary noprint" onclick="window.print()">Print</button>
+</div>
+<div class="table-responsive-xl table-striped">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>From</th>
+                <th>To</th>
+                <th>Average Distance</th>
+                <th>Average Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model)
+            {
+                <tr>
+                    <td>@item.from</td>
+                    <td>@item.to</td>
+                    <td>@item.avgDist</td>
+                    <td>@item.avgTime</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

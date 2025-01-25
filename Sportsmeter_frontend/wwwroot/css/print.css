@@ -1,0 +1,7 @@
+﻿.noprint{
+    display: none !important;
+}
+
+.yesprint{
+    display: flex !important;
+}
