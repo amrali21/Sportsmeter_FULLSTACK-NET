@@ -1,18 +1,23 @@
 ﻿@model CreateRunInfoDTO
 
 <section class="input-form">
+    <h2>Add New</h2>
+
     <form asp-action="AddItem">
         <div class="mb-2">
+            <label class="mb-1">Time</label>
             <input asp-for="Time" class="form-control" placeholder="time" type="number" />
         </div>
         <div class="mb-2">
+            <label class="mb-1">Distance</label>
             <input asp-for="Distance" class="form-control" placeholder="distance" type="number" />
         </div>
         <div class="mb-2">
+            <label class="mb-1">Date</label>
             <input asp-for="Date" class="form-control" placeholder="date" type="date" />
         </div>
         <aside>
-            <button type="submit" class="btn btn-outline-secondary">Add</button>
+            <button type="submit" class="btn btn-outline-primary">Add</button>
         </aside>
     </form>
 </section>

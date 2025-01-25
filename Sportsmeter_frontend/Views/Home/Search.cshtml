@@ -7,12 +7,26 @@
     var message = ViewBag.message;
 }
 
+<h2>Search</h2>
 <form asp-action="Entries" method="get">
 
-    <input type="date" class="form-control mb-2" required placeholder="date from" asp-for="dateFrom" />
-    <input type="date" class="form-control mb-2" placeholder="date to" asp-for="dateTo" />
-    <input type="number" class="form-control mb-2" placeholder="Enter distance.." asp-for="distance" />
-    <input type="number" class="form-control mb-2" placeholder="Enter time.." asp-for="time" />
+    <div class="mb-2">
+        <label class="mb-1">Date From</label>
+        <input type="date" class="form-control mb-2" required placeholder="date from" asp-for="dateFrom" />
+    </div>
+    <div class="mb-2">
+        <label class ="mb-1">Date To</label>
+        <input type="date" class="form-control mb-2" placeholder="date to" asp-for="dateTo" />
+    </div>
+    <div class="mb-2">
+        <label class="mb-1">Distance</label>
+        <input type="number" class="form-control mb-2" placeholder="Enter distance.." asp-for="distance" />
+    </div>
+    <div class="mb-2">
+        <label class="mb-1">Time</label>
+        <input type="number" class="form-control " placeholder="Enter time.." asp-for="time" />
+    </div>
+    
 
     @if(message != "" && message != null){
         <div class="alert alert-danger" role="alert">
@@ -21,5 +35,5 @@
     }
 
 
-    <input type="submit" class="btn btn-outline-secondary" value="Search" />
+    <input type="submit" class="btn btn-outline-primary" value="Search" />
 </form>
