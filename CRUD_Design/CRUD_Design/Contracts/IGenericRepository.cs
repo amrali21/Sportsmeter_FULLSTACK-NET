@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using System.Data;
 
 namespace CRUD_Design_Contracts { 
     public interface IGenericRepository<T> where T : class
@@ -9,6 +10,8 @@ namespace CRUD_Design_Contracts {
         Task<T> AddAsync (T entity);    
         Task<T> UpdateAsync (T entity); 
         Task DeleteAsync (object id);
-        Task<bool> Exists(object id);  
+        Task<bool> Exists(object id);
+        Task<IDbTransaction> BeginTransaction(IsolationLevel isolation = IsolationLevel.Serializable);
+
     }
 }

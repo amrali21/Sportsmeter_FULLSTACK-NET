@@ -3,7 +3,9 @@ using AutoMapper.QueryableExtensions;
 using CRUD_Design;
 using CRUD_Design_Contracts;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Sportsmeter_frontend.Model.Services;
+using System.Data;
 using System.Linq.Expressions;
 
 namespace CRUD_Design.Repository
@@ -63,6 +65,12 @@ namespace CRUD_Design.Repository
             _context.Update(entity);
             await _context.SaveChangesAsync();
             return entity; 
+        }
+
+        public async Task<IDbTransaction> BeginTransaction(IsolationLevel isolation = IsolationLevel.Serializable)
+        {
+            var transaction = await _context.Database.BeginTransactionAsync(isolation);
+            return transaction.GetDbTransaction();
         }
     }
 }

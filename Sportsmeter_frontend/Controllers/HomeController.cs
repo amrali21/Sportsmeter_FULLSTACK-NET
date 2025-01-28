@@ -7,6 +7,7 @@ using CRUD_Design.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Sportsmeter_frontend.Models;
+using System.Data;
 using System.Diagnostics;
 using System.Security.Claims;
 
@@ -125,14 +126,23 @@ namespace Sportsmeter_frontend.Controllers
                 return BadRequest();       
             }
 
+            // if i started to update, no body should read.
+            IDbTransaction transaction = await _runInfoRepository.BeginTransaction(IsolationLevel.RepeatableRead);
+
             try
             {
+                var test = await _runInfoRepository.GetAsync(Convert.ToInt32(d.Id));
                 await _runInfoRepository.UpdateAsync(_mapper.Map<RunInfo>(d));
             }
             catch (Exception ex)
             {
+                transaction.Rollback();
+                //await _runInfoRepository.RollBackTransaction();
                 return StatusCode(500, ex.Message);
             }
+
+            transaction.Commit();
+            //await _runInfoRepository.EndTransaction();
 
             return RedirectToAction(nameof(Index));
         }
