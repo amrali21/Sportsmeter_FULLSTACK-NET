@@ -72,5 +72,10 @@ namespace CRUD_Design.Repository
             var transaction = await _context.Database.BeginTransactionAsync(isolation);
             return transaction.GetDbTransaction();
         }
+
+        public Object? ExecRawSql(string query)
+        {
+           return _context.RunInfos.FromSqlRaw(query).AsNoTracking().FirstOrDefault();
+        }
     }
 }

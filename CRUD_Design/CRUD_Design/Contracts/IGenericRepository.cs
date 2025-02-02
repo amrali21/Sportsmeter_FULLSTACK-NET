@@ -13,5 +13,6 @@ namespace CRUD_Design_Contracts {
         Task<bool> Exists(object id);
         Task<IDbTransaction> BeginTransaction(IsolationLevel isolation = IsolationLevel.Serializable);
 
+        Object? ExecRawSql(string query);
     }
 }

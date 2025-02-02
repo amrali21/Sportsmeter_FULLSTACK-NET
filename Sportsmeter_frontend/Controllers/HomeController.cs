@@ -127,11 +127,11 @@ namespace Sportsmeter_frontend.Controllers
             }
 
             // if i started to update, no body should read.
-            IDbTransaction transaction = await _runInfoRepository.BeginTransaction(IsolationLevel.RepeatableRead);
+            using IDbTransaction transaction = await _runInfoRepository.BeginTransaction(IsolationLevel.Serializable);
 
             try
             {
-                var test = await _runInfoRepository.GetAsync(Convert.ToInt32(d.Id));
+                var test =  _runInfoRepository.ExecRawSql($"SELECT * FROM RunInfos WITH (XLOCK, ROWLOCK) WHERE Id = {d.Id}");  //_runInfoRepository.GetAsync(Convert.ToInt32(d.Id));
                 await _runInfoRepository.UpdateAsync(_mapper.Map<RunInfo>(d));
             }
             catch (Exception ex)
