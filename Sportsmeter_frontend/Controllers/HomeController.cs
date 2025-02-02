@@ -114,7 +114,7 @@ namespace Sportsmeter_frontend.Controllers
         {
             RunInfo runINfo = await _runInfoRepository.GetAsync(Id);
 
-            var test = runINfo.Date.ToString("yyyy-MM-dd");
+            //var test = runINfo.Date.ToString("yyyy-MM-dd");
             return View(runINfo);
         }
 

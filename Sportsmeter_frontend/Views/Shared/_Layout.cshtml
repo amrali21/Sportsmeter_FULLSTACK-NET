@@ -55,13 +55,13 @@
                     @{
                         if(@userName == null)
                         {
-                                                <form method="post" asp-controller="User" asp-action="Login">
-                        <input name="Email" type="email" placeholder="name"/>
-                        <input name="Password" type="password" placeholder="password"/>
-
-                        <input class="btn btn-secondary"   type ="submit" value="login"/>
-                    
-                                 </form>
+                            <form method="post" asp-controller="User" asp-action="Login">
+                                <div class="d-flex gap-3">
+                                    <input name="Email" type="email" class="form-control" placeholder="name" />
+                                    <input name="Password" type="password" class="form-control" placeholder="password" />
+                                    <input class="btn btn-secondary" type="submit" value="login" />
+                                </div>
+                            </form>
 
                         }else{
                             <div>Hello, @userName <a class="btn btn-secondary" asp-controller="User" asp-action="Logout">Logout</a></div>
