@@ -24,12 +24,16 @@ namespace Sportsmeter_frontend.Controllers
         public async Task<IActionResult> Weekly()
         {
             List<RunInfo> all = await _runInfoRepository.GetAllAsync(); // data needs to come filtered by user and select only relevant columns
+            List<WeeklyReport> weeklyReports = new();
+
+            if (all.Count == 0)
+                return View("Index", weeklyReports);
+
             DateTime mostRecent = all.Select(r => r.Date).Max();
             DateTime oldest = all.Select(all => all.Date).Min();
 
             DateTime tempDate = mostRecent;  // 21/01/2025
 
-            List<WeeklyReport> weeklyReports = new();
             while (tempDate > oldest.AddDays(-7))         //ignore: check condition for when there is like 5 day difference
             {
                 // get avg of this week
