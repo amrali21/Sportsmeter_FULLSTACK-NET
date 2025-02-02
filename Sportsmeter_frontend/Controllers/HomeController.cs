@@ -123,12 +123,12 @@ namespace Sportsmeter_frontend.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();       
+                return BadRequest();
             }
 
             // if i started to update, no body should read.
             using IDbTransaction transaction = await _runInfoRepository.BeginTransaction(IsolationLevel.Serializable);
-
+             
             try
             {
                 var test =  _runInfoRepository.ExecRawSql($"SELECT * FROM RunInfos WITH (XLOCK, ROWLOCK) WHERE Id = {d.Id}");  //_runInfoRepository.GetAsync(Convert.ToInt32(d.Id));
