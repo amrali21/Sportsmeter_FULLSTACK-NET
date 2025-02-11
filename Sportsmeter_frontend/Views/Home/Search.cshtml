@@ -12,11 +12,11 @@
 
     <div class="mb-2">
         <label class="mb-1">Date From</label>
-        <input type="date" class="form-control mb-2" required placeholder="Date From" asp-for="dateFrom" />
+        <input type="text" class="form-control mb-2" required placeholder="Date From" onfocus="(this.type='date')" onfocusout="(this.type='text')" asp-for="dateFrom" />
     </div>
     <div class="mb-2">
         <label class ="mb-1">Date To</label>
-        <input type="date" class="form-control mb-2" placeholder="date to" asp-for="dateTo" />
+        <input type="text" class="form-control mb-2" placeholder="Date to" onfocus="(this.type='date')" onfocusout="(this.type='text')" asp-for="dateTo" />
     </div>
     <div class="mb-2">
         <label class="mb-1">Distance</label>
