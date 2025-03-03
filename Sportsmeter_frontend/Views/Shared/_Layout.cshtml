@@ -33,23 +33,25 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link text-dark" })
+
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Add">Add Item</a>
+                            @Html.ActionLink("Add Item", "Add", "Home", null, new { @class = "nav-link text-dark" })
+
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Report" asp-action="Weekly">Weekly Report</a>
+                            @Html.ActionLink("Weekly Report", "Index", "Report", null, new { @class = "nav-link text-dark" })
                         </li>
 
                         @if (@editor != false)
                         {
                             <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Register">Register user</a>
-                        </li>
-                        <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Show Users</a>
-                                 </li>
+                                @Html.ActionLink("Register User", "Register", "User", null, new { @class = "nav-link text-dark" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Show Users", "Index", "User", null, new { @class = "nav-link text-dark" })
+                             </li>
                         }
                     </ul>
                     @{
