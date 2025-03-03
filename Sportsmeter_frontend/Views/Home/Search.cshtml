@@ -8,7 +8,7 @@
 }
 
 <h2>Search</h2>
-<form asp-action="Entries" method="get">
+@using(Html.BeginForm("Entries","Home",FormMethod.Get)){
 
     <div class="mb-2">
         <label class="mb-1">Date From</label>
@@ -36,4 +36,4 @@
 
 
     <input type="submit" class="btn btn-outline-primary" value="Search" />
-</form>
+}
