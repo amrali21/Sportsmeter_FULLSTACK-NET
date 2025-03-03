@@ -45,12 +45,15 @@
                 <tbody>
                         @foreach (var item in runInfo)
                         {
-                      <tr>
-                        <td>@item.Distance</td>
-                        <td>@item.Time</td>
-                        <td>@item.Date</td>
-                        <td> <a class="btn btn-secondary"  asp-action="Edit" asp-route-Id= "@item.Id">edit</a> <a asp-action="Delete" asp-route-Id= "@item.Id" class="btn btn-secondary" >delete</a></td>
-                    </tr>
+                          <tr>
+                            <td>@item.Distance</td>
+                            <td>@item.Time</td>
+                            <td>@item.Date</td>
+                            <td>  
+                                @Html.ActionLink("Edit", "Edit", "Home", new { Id = item.Id }, new { @class = "btn btn-secondary" })
+                                @Html.ActionLink("Delete", "Delete", "Home", new { Id = item.Id }, new { @class = "btn btn-secondary"})
+                            </td>
+                          </tr>
                         }
                 </tbody>
                 </table>
