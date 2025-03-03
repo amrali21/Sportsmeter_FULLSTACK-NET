@@ -4,9 +4,10 @@
 }
 
 <div>
-    <form asp-action="Edit" method="post">
-        <h3>Edit Record</h3>
-      <input type="hidden" asp-for="Id" value="@Model.Id" />
+    <h3>Edit Record</h3>
+    @using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+    {
+        <input type="hidden" asp-for="Id" value="@Model.Id" />
 
         <div>
             <input type="hidden" class="form-control mb-2" asp-for="ApplicationUserId" value="@Model.ApplicationUserId" />
@@ -23,8 +24,7 @@
             <label class="mb-1">Date</label>
             <input type="date" class="form-control " asp-for="Date" value="@Model.Date.ToString("yyyy-MM-dd")" onfocus="(this.type='date')" onfocusout="(this.type='text')" />
         </div>
-       
-
         <input type="submit" class="btn btn-outline-secondary" value="Edit" />
-    </form>
+    }
+  
 </div>
